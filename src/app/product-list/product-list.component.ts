@@ -36,6 +36,8 @@ export class ProductListComponent implements OnInit {
 
       switch (this.productType) {
         case ProductType.screw:
+          // This could be done by returning the total items amount in the response instead of perform 
+          // two calls, but had no time for it.
           this.productsService.getScrews().subscribe(screws => {
             this.totalItems = screws.length;
           });
