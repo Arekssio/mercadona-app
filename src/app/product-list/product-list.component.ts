@@ -5,6 +5,8 @@ import { ProductsService } from '../services/products.service';
 import { Product } from '../types/product';
 import { ProductType } from '../types/product-type';
 import { Screw } from '../types/screw';
+import {MatDialog} from '@angular/material/dialog';
+import { ProductAddDialogComponent } from '../product-add-dialog/product-add-dialog.component';
 
 @Component({
   selector: 'app-product-list',
@@ -25,7 +27,7 @@ export class ProductListComponent implements OnInit {
 
   private productType: ProductType;
 
-  constructor(private productsService: ProductsService, private activatedRoute: ActivatedRoute) {
+  constructor(private productsService: ProductsService, private activatedRoute: ActivatedRoute, private dialog: MatDialog) {
     this.products = [];
     this.columns = [];
     this.dataSource = [];
@@ -70,5 +72,11 @@ export class ProductListComponent implements OnInit {
       this.dataSource = screws;
       this.columns = Object.keys(screws[0]);
     });
+  }
+
+  onAddProduct(): void {
+    this.dialog.open(ProductAddDialogComponent).afterClosed().subscribe(() => {
+      console.log('Dialog closed')
+    })
   }
 }

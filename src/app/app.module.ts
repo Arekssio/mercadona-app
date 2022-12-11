@@ -17,6 +17,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ProductAddDialogComponent } from './product-add-dialog/product-add-dialog.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ProductCardComponent,
     AppHeaderComponent,
     ProductsSectionComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductAddDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -35,9 +38,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatIconModule,
     MatTableModule,
     MatPaginatorModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
   ],
-  providers: [ProductsService, ProductsApiService],
+  providers: [ProductsService, ProductsApiService, MatDialog],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

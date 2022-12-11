@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Nuevo producto</h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="'A'" cdkFocusInitial>Guardar</button>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+</div>
