@@ -1,0 +1,29 @@
+.app-header__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: space-between;
+}
+
+.app-header__left-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+}
+
+.app-header__container__logo {
+    img {
+        height: 3rem;
+        width: 3rem;
+    }
+}
+
+.app-header__container__title {
+    margin: 1rem;
+    font-weight: 400;
+}
+
+.app-header__divider {
+    border-top-color: green;
+}

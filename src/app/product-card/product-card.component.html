@@ -1,0 +1,15 @@
+<div class="product-card">
+    <div class="product-card__product-info">
+        <div class="product-card__product-info__title">
+            Tornillos
+        </div>
+        <div class="product-card__product-info__text">
+            {{ screws.length}} tornillos por revisar
+        </div>
+    </div>
+    <div class="product-card__button">
+        <button mat-button (click)="onCheckButtonClicked()">
+            <mat-icon>remove_red_eye</mat-icon> Revisar
+        </button>
+    </div>
+</div>
