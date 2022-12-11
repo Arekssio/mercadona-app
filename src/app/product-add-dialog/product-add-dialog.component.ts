@@ -9,7 +9,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class ProductAddDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<ProductAddDialogComponent>, @Inject(MAT_DIALOG_DATA) private data: any) {
-    
   }
 
   ngOnInit(): void {

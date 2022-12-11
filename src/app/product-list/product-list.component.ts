@@ -59,7 +59,6 @@ export class ProductListComponent implements OnInit {
 
   onPageEvent(event: PageEvent) {
     this.productsService.getScrews(event.pageSize, event.pageIndex).subscribe(screws => {
-      console.log(screws)
       this.dataSource = screws;
       this.columns = Object.keys(screws[0]);
     });
@@ -76,7 +75,6 @@ export class ProductListComponent implements OnInit {
 
   onAddProduct(): void {
     this.dialog.open(ProductAddDialogComponent).afterClosed().subscribe(() => {
-      console.log('Dialog closed')
     })
   }
 }

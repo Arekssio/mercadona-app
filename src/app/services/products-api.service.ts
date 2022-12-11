@@ -96,7 +96,6 @@ export class ProductsApiService {
     if (pageSize !== undefined && pageNumber !== undefined) {
       const start = pageSize * pageNumber;
       const end = start + pageSize;
-      console.log(start, end)
       const part = this.availableScrews.slice(start, end);
       return of(part)
     }
