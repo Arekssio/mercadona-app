@@ -7,23 +7,10 @@ import { Screw } from '../types/screw';
 })
 export class ProductsApiService {
 
-  constructor() { }
+  private availableScrews: Screw[];
 
-  fetchScrews(pageSize?: number, pageNumber?: number): Observable<Screw[]> {
-    if (pageSize !== undefined && pageNumber !== undefined) {
-      const start = pageSize * pageNumber;
-      const end = start + pageSize;
-      console.log(start, end)
-      const part = this.getScrews().slice(start, end);
-      return of(part)
-    }
-
-    return of(this.getScrews())
-
-  }
-
-  private getScrews() {
-    return [{
+  constructor() {
+    this.availableScrews = [{
       name: 'Screw A',
       price: 5.99,
       format: 'Format A',
@@ -103,5 +90,21 @@ export class ProductsApiService {
       format: 'Format O',
       manufacturer: 'Manufacturer O'
     }]
+  }
+
+  fetchScrews(pageSize?: number, pageNumber?: number): Observable<Screw[]> {
+    if (pageSize !== undefined && pageNumber !== undefined) {
+      const start = pageSize * pageNumber;
+      const end = start + pageSize;
+      console.log(start, end)
+      const part = this.availableScrews.slice(start, end);
+      return of(part)
+    }
+
+    return of(this.availableScrews)
+  }
+
+  removeScrew(screw: Screw) {
+    this.availableScrews = this.availableScrews.filter(item => item !== screw);
   }
 }

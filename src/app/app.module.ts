@@ -16,6 +16,7 @@ import { ProductsSectionComponent } from './products-section/products-section.co
 import { ProductListComponent } from './product-list/product-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatButtonModule,
     MatIconModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTooltipModule
   ],
   providers: [ProductsService, ProductsApiService],
   bootstrap: [AppComponent]

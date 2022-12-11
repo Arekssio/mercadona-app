@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../services/products.service';
 import { Product } from '../types/product';
 import { ProductType } from '../types/product-type';
+import { Screw } from '../types/screw';
 
 @Component({
   selector: 'app-product-list',
@@ -17,6 +18,10 @@ export class ProductListComponent implements OnInit {
   protected pageSize: number;
   protected pageSizeOptions: number[];
   protected totalItems: number;
+
+  protected get displayedColumns() {
+    return this.columns.concat('acciones')
+  }
 
   private productType: ProductType;
 
@@ -52,9 +57,18 @@ export class ProductListComponent implements OnInit {
 
   onPageEvent(event: PageEvent) {
     this.productsService.getScrews(event.pageSize, event.pageIndex).subscribe(screws => {
+      console.log(screws)
       this.dataSource = screws;
       this.columns = Object.keys(screws[0]);
     });
   }
 
+  onProductDelete(screw: Screw) {
+    this.productsService.removeScrew(screw);
+
+    this.productsService.getScrews(this.pageSize, 0).subscribe(screws => {
+      this.dataSource = screws;
+      this.columns = Object.keys(screws[0]);
+    });
+  }
 }

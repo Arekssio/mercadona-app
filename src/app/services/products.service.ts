@@ -13,4 +13,8 @@ export class ProductsService {
   getScrews(pageSize?: number, pageNumber?: number): Observable<Screw[]> {
     return this.productsApiService.fetchScrews(pageSize, pageNumber);
   }
+
+  removeScrew(screw: Screw) {
+    this.productsApiService.removeScrew(screw);
+  }
 }
